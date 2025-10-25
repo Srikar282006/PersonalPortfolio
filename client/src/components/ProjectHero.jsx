@@ -24,8 +24,8 @@ const ProjectHero = ({ onTagSelect }) => {
   };
 
   const techTags = [
-    "All", "Axios", "Bcrypt", "CSS", "DaisyUI", "Express", "Firebase", "Flask", "HTML",
-    "JWT", "JavaScript", "MongoDB", "Multer", "MySQL", "Machine Learning", "NLP",
+    "All", "Axios", "Bcrypt", "CSS", "DaisyUI", "Express", "Flask", "HTML",
+    "JWT", "JavaScript", "MongoDB", "Multer", "MySQL", "Machine Learning", "MERN","NLP",
     "Node.js", "Node Mailer", "PostgreSQL", "Python", "REST API", "React", "Redux",
     "Streamlit","Socket.io", "TailwindCSS", "UI/UX"
   ];

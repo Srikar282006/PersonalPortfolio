@@ -24,7 +24,7 @@ const Navbar = () => {
                 d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
-          <a className={` text-xl ${navbarText}`}>Srikar</a>
+          <a className={` text-xl ${navbarText}`}>Srikar Acharya</a>
         </div>
 
         {/* desktop menu */}

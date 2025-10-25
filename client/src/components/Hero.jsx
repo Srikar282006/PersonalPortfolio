@@ -10,7 +10,9 @@ import { CiMail } from "react-icons/ci";
 import { IoCallOutline } from "react-icons/io5";
 import { useTheme } from './ThemeContext'; // adjust the path
 import resume from "../assets/MERN_Stack_resume.pdf"
-// === Star Particles Config ===
+import {useNavigate,Link} from 'react-router-dom'
+
+
 const starOptions = {
   background: { color: "#000000" },
   particles: {
@@ -27,6 +29,8 @@ const Hero = () => {
   const particlesInit = useCallback(async (engine) => {
     await loadSlim(engine); // loads tsparticles slim
   }, []);
+
+  const navigate=useNavigate()
 
 const handleDownload = () => {
   const link = document.createElement("a");
@@ -97,31 +101,42 @@ const handleDownload = () => {
         technologies. Currently pursuing a Btech in Electronics and Communication at CBIT.
       </p>
        <div className="mt-3">
-       <button className={`btn    px-4 hover:px-5 ${!dark ? " bg-black border-black text-white" : "bg-white text-black border-white"}`}>View My Work <FaArrowRight className="ml-2 " />
+       <button className={`btn    px-4 hover:px-5 ${!dark ? " bg-black border-black text-white" : "bg-white text-black border-white"}`} onClick={()=>{navigate("/projects")}}> View My Work <FaArrowRight className="ml-2 " />
 </button>
        <button className={`btn px-3 ml-4 transition-all duration-300 ${!dark ? " bg-white border-shadow text-black hover:bg-slate-100 " : "bg-black text-white border-shadow hover:"}`} onClick={handleDownload}><RiDownloadLine className="w-[16px] h-[26px] mt-1"/>Resume</button>
       </div>
 <div className="mt-5 flex justify-center md:justify-start gap-4">
+
   {/* GitHub */}
   <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 cursor-pointer transition">
-    <FaGithub className="text-lg text-black dark:text-white" />
+    <a href="https://github.com/Srikar282006" target="_blank" rel="noopener noreferrer">
+      <FaGithub className="text-lg text-black dark:text-white" />
+    </a>
   </div>
 
   {/* LinkedIn */}
   <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 cursor-pointer transition">
-    <TiSocialLinkedin className="text-lg text-black dark:text-white" />
+    <a href="https://www.linkedin.com/in/srikar-acharya-madabhushani-29ba87344/" target="_blank" rel="noopener noreferrer">
+      <TiSocialLinkedin className="text-lg text-black dark:text-white" />
+    </a>
   </div>
 
   {/* Mail */}
   <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 cursor-pointer transition">
-    <CiMail className="text-lg text-black dark:text-white" />
+    <a href="mailto:srikarmach@gmail.com">
+      <CiMail className="text-lg text-black dark:text-white" />
+    </a>
   </div>
 
   {/* Phone */}
   <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 cursor-pointer transition">
-    <IoCallOutline className="text-lg text-black dark:text-white" />
+    <a href="tel:+91897837024">
+      <IoCallOutline className="text-lg text-black dark:text-white" />
+    </a>
   </div>
+
 </div>
+
 
 
 

@@ -105,36 +105,49 @@ const ContactForm = () => {
 
     // Conditional rendering: Show success message after successful submission
     if (submissionStatus === 'success') {
-        return (
-            <div className='bg-cyan-50 h-[300px] flex items-center justify-center p-4'>
-                <div className='py-8 text-center'>
-                    <h1 className='text-2xl sm:text-3xl font-bold mb-3'>Message</h1>
-                    <p className='text-gray-700 max-w-md mx-auto'>
-                        Thank you for reaching out. I'll get back to you as soon as possible.
-                    </p>
-                    <div className='flex justify-center mt-6'>
-                        
-                        <Link to='/'
-                            className="relative mt-0.5 box-border border-0 rounded-full text-white py-3 px-6 bg-black flex transition-colors duration-200 items-center gap-2.5 font-bold cursor-pointer
-                                    hover:bg-gray-800 group" 
-                            role="button"
-                        >
-                            Home
-                            <div className="flex justify-center items-center">
-                                <div className="w-2.5 bg-black h-0.5 relative transition-all duration-200 group-hover:bg-white"> {/* Arrow base */}
-                                    <span className="absolute box-border border-solid border-white border-b-0 border-r-0 border-t-0 border-l-0 w-0 h-0
-                                        top-[-3px] right-[3px] p-[3px] transform rotate-[-45deg]
-                                        group-hover:right-0 transition-all duration-200"
-                                        style={{ borderWidth: '2px 2px 0 0' }} // Mimics border-width from original styled-components
-                                    ></span>
-                                </div>
-                            </div>
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+  return (
+    <div className={`min-h-screen flex items-center justify-center relative overflow-hidden ${dark ? "bg-black" : "bg-white"}`}>
+      
+      {/* Optional Particles for dark mode */}
+      {dark && (
+        <Particles
+          id="tsparticles-success"
+          init={particlesInit}
+          options={starOptions}
+          className="absolute top-0 left-0 w-full h-full -z-10"
+        />
+      )}
+
+      <div className="flex flex-col items-center text-center space-y-6 p-8 animate-fadeIn z-10">
+        <div className="bg-green-100/10 rounded-full p-4 border border-green-400 animate-pulse">
+          <IoIosSend className={`text-5xl ${dark ? "text-green-400" : "text-green-600"}`} />
+        </div>
+
+        <h1 className={`text-3xl font-bold ${dark ? "text-gray-100" : "text-gray-800"}`}>
+          Message Sent Successfully!
+        </h1>
+
+        <p className={`max-w-md text-lg ${dark ? "text-gray-400" : "text-gray-600"}`}>
+          Thanks for reaching out — your message has been delivered to <span className="font-semibold">Srikar</span>.  
+          I’ll review it and get back to you soon 🚀
+        </p>
+
+        <Link
+          to="/"
+          className={`mt-4 px-6 py-3 rounded-full text-lg font-semibold flex items-center gap-2 shadow-md transition-all duration-300 
+            ${dark
+              ? "bg-gradient-to-r from-gray-100 to-white text-black hover:scale-105 hover:shadow-white/40"
+              : "bg-gradient-to-r from-black via-gray-800 to-gray-900 text-white hover:scale-105 hover:shadow-gray-400/40"}
+          `}
+        >
+          <span>Back to Home</span>
+          <IoIosSend className="text-xl rotate-[-45deg]" />
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 
     // Main render: Contact Form with two-column layout
     return (
